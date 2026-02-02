@@ -5,6 +5,9 @@ import os
 import random
 
 app = FastAPI(title="Ticket API", version="1.0")
+@app.get("/")
+def root():
+    return {"message": "Ticket API is running"}
 
 client = MongoClient(os.environ.get("MONGO_URI"))
 db = client.ticketdb
